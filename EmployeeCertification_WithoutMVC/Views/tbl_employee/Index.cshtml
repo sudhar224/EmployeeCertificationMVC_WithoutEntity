@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EmployeeCertification_WithoutMVC.Models.tbl_employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+ 
+<h2 class="ms-5" >Show All Employee</h2>
+<h3 class="ms-5">
+    Welcome  @ViewBag.LoggedInUser
+    @Html.ActionLink("Logout","Logout")
+</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table ms-5">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emp_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.designation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id }) |
+            @Html.ActionLink("Certification Details", "get_cert", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

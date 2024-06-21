@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EmployeeCertification_WithoutMVC.Models.get_cert>
+
+@{
+    ViewBag.Title = "get_cert";
+}
+
+<h2>get_cert</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emp_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.certification)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emp_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.certification)
+            </td>
+
+        </tr>
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
+</table>

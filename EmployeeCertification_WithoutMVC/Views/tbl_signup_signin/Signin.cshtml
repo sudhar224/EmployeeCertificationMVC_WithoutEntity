@@ -1,0 +1,60 @@
+﻿@model EmployeeCertification_WithoutMVC.Models.tbl_signup_signin
+
+@{
+    ViewBag.Title = "Signin";
+}
+
+@{
+    if (ViewBag.LoginSuccess == "success")
+    {
+        <script>alert("login success")</script>
+    }
+    else if (ViewBag.LoginSuccess == "unsuccess")
+    {
+        <script>alert("login failed")</script>
+    }
+}
+
+<h2 class="ps-5" >Signin</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal ms-10 ml-10" >
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group ms-10">
+            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group ms-10">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group ms-10">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="SignIn" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Create Account", "Signup")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
