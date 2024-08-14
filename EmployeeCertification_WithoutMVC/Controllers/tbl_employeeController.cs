@@ -12,11 +12,11 @@ namespace EmployeeCertification_WithoutMVC.Controllers
 {
     public class tbl_employeeController : Controller
     {
-		  //string Dbconnection = ("Data Source = DESKTOP-7TUTM2S\\SQLEXPRESS; Initial Catalog = employee; Integrated Security = true;");
-		string Dbconnection = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
-		//string Dbconnection = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
-		// GET: tbl_employee
-		public ActionResult Index()
+        string Dbconnection = ("Data Source = DESKTOP-7TUTM2S\\SQLEXPRESS; Initial Catalog = employee; Integrated Security = true;");
+        //string Dbconnection = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
+        //string Dbconnection = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
+        // GET: tbl_employee
+        public ActionResult Index()
         {
             if (Session["uname"] == null)
             {

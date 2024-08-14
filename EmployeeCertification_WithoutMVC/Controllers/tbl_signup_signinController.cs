@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
+using System.Configuration.Provider;
 using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using EmployeeCertification_WithoutMVC.Models;
-using System.Web.Configuration;
 
 namespace EmployeeCertification_WithoutMVC.Controllers
 {
-    public class tbl_signup_signinController : Controller
+	public class tbl_signup_signinController : Controller
     {
-		//string Dbconnection = ("Data Source = DESKTOP-7TUTM2S\\SQLEXPRESS; Initial Catalog = employee; Integrated Security = true;");
-		string Dbconnection = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
+        string Dbconnection = ("Data Source = DESKTOP-7TUTM2S\\SQLEXPRESS; Initial Catalog = employee; Integrated Security = true;");
+        //string  Dbconnection = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
 		//string Dbconnection = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
         
 
@@ -106,9 +103,9 @@ namespace EmployeeCertification_WithoutMVC.Controllers
 				return View();
 				//return RedirectToAction();
 			}
-			catch
+			catch(Exception ex)
 			{
-				return View();
+				return View(ex);
 			}
 		}
 
@@ -153,7 +150,12 @@ namespace EmployeeCertification_WithoutMVC.Controllers
             catch
             {
                 return View();
-            }
-        }
+			}
+		}
     }
 }
+	//< connectionStrings >
+	//	< add name = "Dbconnection"
+	//		 connectionString = "Data Source=DESKTOP-7TUTM2S\\SQLEXPRESS;Initial Catalog=employee;Integrated Security=True;"
+	//		 providerName = "System.Data.SqlClient" />
+	//</ connectionStrings >
